@@ -1,0 +1,37 @@
+GPIO Data (GPIODATA)
+GPIO Port A (APB) base: 0x4000.4000
+GPIO Port A (AHB) base: 0x4005.8000
+GPIO Port B (APB) base: 0x4000.5000
+GPIO Port B (AHB) base: 0x4005.9000
+GPIO Port C (APB) base: 0x4000.6000
+GPIO Port C (AHB) base: 0x4005.A000
+GPIO Port D (APB) base: 0x4000.7000
+GPIO Port D (AHB) base: 0x4005.B000
+GPIO Port E (APB) base: 0x4002.4000
+GPIO Port E (AHB) base: 0x4005.C000
+GPIO Port F (APB) base: 0x4002.5000
+GPIO Port F (AHB) base: 0x4005.D000
+Offset 0x000
+663 p age in tiva c data sheet
+
+If we wish to access bit Constant
+7 0x0200
+6 0x0100
+5 0x0080
+4 0x0040
+3 0x0020
+2 0x0010
+1 0x0008
+0 0x0004
+Table 4.6. Address offsets used to specify individual data port bits.
+
+340 p age in tiva c data sheet
+
+
+
+
+	SYSCTL->RCGCGPIO = SYSCTL->RCGCGPIO | (1<<5);   
+	GPIOF->CR=0x01;
+	GPIOF->DEN =GPIOF->DEN |(1<<0) | (1<<4);
+	GPIOF->DIR =GPIOF->DIR &(~(1<<0)) &(~(1<<4));    
+	GPIOF->PUR =GPIOF->PUR | (1<<0)| (1<<4);  
